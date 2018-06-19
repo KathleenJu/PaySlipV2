@@ -14,7 +14,11 @@
     ],
     "frameworks": {
       "netcoreapp2.0": {
-        "projectReferences": {}
+        "projectReferences": {
+          "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/PaySlip.csproj": {
+            "projectPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/PaySlip.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
