@@ -1,0 +1,14 @@
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/PaySlipTest.deps.json
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/PaySlipTest.runtimeconfig.json
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/PaySlipTest.runtimeconfig.dev.json
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/PaySlipTest.dll
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/bin/Debug/netcoreapp2.0/PaySlipTest.pdb
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/obj/Debug/netcoreapp2.0/PaySlipTest.csprojResolveAssemblyReference.cache
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/obj/Debug/netcoreapp2.0/PaySlipTest.csproj.CoreCompileInputs.cache
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/obj/Debug/netcoreapp2.0/PaySlipTest.AssemblyInfoInputs.cache
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/obj/Debug/netcoreapp2.0/PaySlipTest.AssemblyInfo.cs
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/obj/Debug/netcoreapp2.0/PaySlipTest.dll
+/Users/kathleen.jumamoy/Projects/PaySlip/PaySlipTest/obj/Debug/netcoreapp2.0/PaySlipTest.pdb
