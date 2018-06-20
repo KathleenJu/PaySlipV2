@@ -9,7 +9,7 @@ namespace PaySlipTest
     {
         //acceptance test
         [Theory]
-        [InlineData("1 March", "31 March", "01 March - 31 March")]
+        [InlineData("1 march", "31 March", "01 March - 31 March")]
         public void ReturnThePayPeriodGenerated(string paymentStartDate, string paymentEndDate, string actualPayPeriod)
         {
             var paymentDetails = new PaymentDetails(0, 0, paymentStartDate, paymentEndDate);

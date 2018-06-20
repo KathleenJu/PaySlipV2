@@ -1,4 +1,8 @@
-﻿namespace PaySlip
+﻿using System;
+using System.Globalization;
+using System.Text.RegularExpressions;
+
+namespace PaySlip
 {
     public class PaymentDetails
     {
@@ -17,8 +21,14 @@
 
         public string GeneratePayPeriod()
         {
-            string payPeriod = _paymentStartDate + " - " + _paymentEndDate;
+            string payPeriod =  FormatDate(_paymentStartDate) + " - " + FormatDate(_paymentEndDate);
             return payPeriod;
+        }
+
+        private string FormatDate(string date)
+        {
+            var formattedDate = Convert.ToDateTime(date).ToString("dd MMMM");
+            return formattedDate;
         }
     }
 }

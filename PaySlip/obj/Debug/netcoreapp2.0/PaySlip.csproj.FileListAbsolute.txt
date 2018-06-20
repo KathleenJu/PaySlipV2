@@ -9,3 +9,13 @@
 /Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.AssemblyInfo.cs
 /Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.dll
 /Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.pdb
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/bin/Debug/netcoreapp2.0/PaySlip.deps.json
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/bin/Debug/netcoreapp2.0/PaySlip.runtimeconfig.json
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/bin/Debug/netcoreapp2.0/PaySlip.runtimeconfig.dev.json
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/bin/Debug/netcoreapp2.0/PaySlip.dll
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/bin/Debug/netcoreapp2.0/PaySlip.pdb
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.csproj.CoreCompileInputs.cache
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.AssemblyInfoInputs.cache
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.AssemblyInfo.cs
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.dll
+/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/obj/Debug/netcoreapp2.0/PaySlip.pdb
