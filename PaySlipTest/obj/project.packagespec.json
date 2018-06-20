@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlipTest/PaySlipTest.csproj",
+    "projectUniqueName": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlipTest/PaySlipTest.csproj",
     "projectName": "PaySlipTest",
-    "projectPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlipTest/PaySlipTest.csproj",
-    "outputPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlipTest/obj/",
+    "projectPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlipTest/PaySlipTest.csproj",
+    "outputPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlipTest/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -15,8 +15,8 @@
     "frameworks": {
       "netcoreapp2.0": {
         "projectReferences": {
-          "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/PaySlip.csproj": {
-            "projectPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/PaySlip.csproj"
+          "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/PaySlip.csproj": {
+            "projectPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/PaySlip.csproj"
           }
         }
       }

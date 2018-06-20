@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/PaySlip.csproj",
+    "projectUniqueName": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/PaySlip.csproj",
     "projectName": "PaySlip",
-    "projectPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/PaySlip.csproj",
-    "outputPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip2/PaySlip/obj/",
+    "projectPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/PaySlip.csproj",
+    "outputPath": "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
