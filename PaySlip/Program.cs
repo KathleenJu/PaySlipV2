@@ -6,7 +6,8 @@ namespace PaySlip
     {
         static void Main(string[] args)
         {
-            var personDetails = new Employee("john", "doe");
+            var employeeDetails = new Employee("john", "doe");
+            Console.WriteLine("Full Name: " + employeeDetails.GetFullName());
         }
     }
 }

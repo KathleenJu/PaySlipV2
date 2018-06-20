@@ -4,19 +4,17 @@ namespace PaySlip
 {
     public class Person
     {
-        protected string _firstName;
-        protected string _lastName;
-
-        public Person()
-        {
-            _firstName = "default";
-            _lastName = "default";
-        }
+        protected string _firstName = "default";
+        protected string _lastName = "default";
 
         public Person(string firstName, string lastName)
         {
             _firstName = firstName;
             _lastName = lastName;
+        }
+
+        protected Person()
+        {
         }
 
         public string GetFullName()

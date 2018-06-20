@@ -11,8 +11,8 @@ namespace PaySlipTest
         [InlineData("lucy", "hale", "Lucy Hale")]
         public void ReturnFullNameInTitleCase(string firstName, string lastName, string actualFullName)
         {
-            var personDetails = new Person(firstName, lastName);
-            var expectedFullName = personDetails.GetFullName();
+            var employeeDetails = new Employee(firstName, lastName);
+            var expectedFullName = employeeDetails.GetFullName();
             
             Assert.Equal(expectedFullName, actualFullName);
         }
