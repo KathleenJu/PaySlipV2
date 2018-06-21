@@ -1,0 +1,8 @@
+﻿{
+  "FullName": "Name: ",
+  "PaymentPeriod": "Pay Period: ",
+  "GrossIncome": "Gross Income: ",
+  "IncomeTax": "Income Tax: ",
+  "NetIncome": "Net Income: ",
+  "Super": "Super: "
+}
