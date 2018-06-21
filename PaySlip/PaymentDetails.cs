@@ -19,7 +19,7 @@ namespace PaySlip
             _paymentEndDate = paymentEndDate;
         }
 
-        public string GeneratePayPeriod()
+        public string GetPayPeriod()
         {
             string payPeriod =  FormatDate(_paymentStartDate) + " - " + FormatDate(_paymentEndDate);
             return payPeriod;

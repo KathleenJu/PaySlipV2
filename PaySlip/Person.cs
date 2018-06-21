@@ -29,27 +29,4 @@ namespace PaySlip
             return capitalisedName;
         }
     }
-
-    public class Employee : Person
-    {
-        private string _company;
-        private PaymentDetails _paymentDetails;
-        private PaySlip _paySlip;
-
-        public Employee(string firstName, string lastName)
-        {
-            _firstName = firstName;
-            _lastName = lastName;
-        }
-
-        public void setPaymentDetails(int annualSalary, int superRate, string paymentStartDate, string paymentEndDate)
-        {
-            _paymentDetails = new PaymentDetails(annualSalary, superRate, paymentStartDate, paymentEndDate);
-        }
-
-        public PaySlip getPaySlip()
-        {
-            return _paySlip;
-        }
-    }
 }

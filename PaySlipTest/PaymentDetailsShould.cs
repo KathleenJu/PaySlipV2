@@ -13,7 +13,7 @@ namespace PaySlipTest
         public void ReturnThePayPeriodGenerated(string paymentStartDate, string paymentEndDate, string actualPayPeriod)
         {
             var paymentDetails = new PaymentDetails(0, 0, paymentStartDate, paymentEndDate);
-            var expectedPayPeriod = paymentDetails.GeneratePayPeriod();
+            var expectedPayPeriod = paymentDetails.GetPayPeriod();
             
             Assert.Equal(expectedPayPeriod, actualPayPeriod);
         }
