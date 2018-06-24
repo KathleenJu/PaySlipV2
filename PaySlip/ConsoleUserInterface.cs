@@ -11,6 +11,7 @@ namespace PaySlip
 
         public void GeneratePaySlipForm(string formFile) //askforuserdetails?
         {
+            Console.WriteLine("Welcome to the payslip generator!\n");
             using (StreamReader file = new StreamReader(formFile))
             {
                 var json = file.ReadToEnd();
@@ -18,9 +19,14 @@ namespace PaySlip
                 foreach (var field in formFields)
                 {
                     Console.Write(field.Value);
-//                    _userDetails.Add(field.Key, Console.ReadLine());
+                    GetUserInput(field);
                 }
             }
+        }
+
+        private void GetUserInput(KeyValuePair<string, string> field)
+        {
+            _userDetails.Add(field.Key, Console.ReadLine());
         }
 
 //        public Employee GenerateEmployee()//should this method be in this class?? 
