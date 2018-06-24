@@ -7,8 +7,10 @@ namespace PaySlip
         static void Main(string[] args)
         {
             var paySlipConsole = new ConsoleUserInterface();
-            paySlipConsole.GeneratePaySlipForm("./files/formQuestions.json");
-             
+            var paySlipFormFile = "./files/formQuestions.json";
+            
+            paySlipConsole.GeneratePaySlipForm(paySlipFormFile);
+
 //            var paySlip = CalculatePaySlip(employee,  );
         }
     }

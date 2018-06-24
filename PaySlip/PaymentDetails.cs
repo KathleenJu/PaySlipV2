@@ -25,9 +25,9 @@ namespace PaySlip
             return payPeriod;
         }
 
-        private string FormatDate(string date)
+        private string FormatDate(string dayAndMonthDate)
         {
-            var formattedDate = Convert.ToDateTime(date).ToString("dd MMMM");
+            var formattedDate = Convert.ToDateTime(dayAndMonthDate + DateTime.Now.Year).ToString("dd MMMM");
             return formattedDate;
         }
     }
