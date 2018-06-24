@@ -27,7 +27,8 @@ namespace PaySlip
 
         private string FormatDate(string dayAndMonthDate)
         {
-            var formattedDate = Convert.ToDateTime(dayAndMonthDate + DateTime.Now.Year).ToString("dd MMMM");
+            var dateTime = Convert.ToDateTime(dayAndMonthDate + DateTime.Now.Year);
+            var formattedDate = dateTime.ToString("dd MMMM");
             return formattedDate;
         }
     }
