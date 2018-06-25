@@ -13,8 +13,7 @@ namespace PaySlipTest
         [InlineData(80000, 12, 6666)]
         public void ReturnGrossIncome(int annualSalary, int monthsInAYear, int actualGrossIncome)
         {
-            var taxCalculator = new TaxCalculator();
-            var expectedGrossIncome = taxCalculator.CalculateGrossIncome(annualSalary);
+            var expectedGrossIncome = TaxCalculator.CalculateGrossIncome(annualSalary);
 
             Assert.Equal(expectedGrossIncome, actualGrossIncome);
         }
@@ -25,8 +24,7 @@ namespace PaySlipTest
         [InlineData(6666, 9, 599)]
         public void ReturnSuper(int grossIncome, int superRate, int actualSuper)
         {
-            var taxCalculator = new TaxCalculator();
-            var expectedSuper = taxCalculator.CalculateSuper(grossIncome, superRate);
+            var expectedSuper = TaxCalculator.CalculateSuper(grossIncome, superRate);
 
             Assert.Equal(expectedSuper, actualSuper);
         }
@@ -37,8 +35,7 @@ namespace PaySlipTest
         [InlineData(6666, 1050, 5616)]
         public void ReturnNetIncome(int grossIncome, int incomeTax, int actualNetIncome)
         {
-            var taxCalculator = new TaxCalculator();
-            var expectedSuper = taxCalculator.CalculateNetIncome(grossIncome, incomeTax);
+            var expectedSuper = TaxCalculator.CalculateNetIncome(grossIncome, incomeTax);
 
             Assert.Equal(expectedSuper, actualNetIncome);
         }
@@ -52,9 +49,8 @@ namespace PaySlipTest
         public void ReturnIncomeTax(int annualSalary, int nonTaxableSalary, double taxPerDollar, int extraTax,
             int actualIncomeTax)
         {
-            var taxCalculator = new TaxCalculator();
             var taxRatesFile = "./files/taxRateInfo.json";
-            var expectedIncomeTax = taxCalculator.CalculateIncomeTax(annualSalary, nonTaxableSalary, taxPerDollar, extraTax);
+            var expectedIncomeTax = TaxCalculator.CalculateIncomeTax(annualSalary, nonTaxableSalary, taxPerDollar, extraTax);
 
             Assert.Equal(expectedIncomeTax, actualIncomeTax);
         }
