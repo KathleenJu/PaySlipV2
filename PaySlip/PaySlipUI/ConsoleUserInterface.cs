@@ -9,7 +9,7 @@ namespace PaySlip
     {
         private readonly Dictionary<string, string> _userDetails = new Dictionary<string, string>();
 
-        public void GeneratePaySlipForm(string formFile) //askforuserdetails?
+        public void GeneratePaySlipForm(string formFile) //refactor, doing more than one thing?
         {
             Console.WriteLine("Welcome to the payslip generator!\n");
             using (StreamReader file = new StreamReader(formFile))

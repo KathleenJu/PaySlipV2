@@ -40,17 +40,29 @@ namespace PaySlip
             return (int) totalIncomeTax;
         }
 
-        public double GetTaxableIncome(int annualSalary)
+        public double GetTaxRates(int annualSalary, string taxRatesFile) //refactor name as it doesnt reflect the method as it calls calculateIncomeTax()
         {
-            using (StreamReader file =
-                new StreamReader("/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/files/taxRateInfo.json"))
+            using (StreamReader file = new StreamReader(taxRatesFile))
             {
                 var json = file.ReadToEnd();
-                var taxRanges = JsonConvert.DeserializeObject<IEnumerable<TaxRateInfo>>(json);
-                var taxRangeInfo = taxRanges.Where(taxRange => annualSalary >= taxRange.getMinimumSalary() && annualSalary <= taxRange.getMaximumSalary());
-                var nonTaxableSalary = taxRangeInfo.Select(taxRange => taxRange.getNonTaxableSalary()).First();
-                return nonTaxableSalary;
+                var taxRatesInfo = JsonConvert.DeserializeObject<IEnumerable<TaxRates>>(json);
+                var taxRatesOfSalaryRange = taxRatesInfo.Where(taxRange => annualSalary >= taxRange.getMinimumSalary() && annualSalary <= taxRange.getMaximumSalary());
+                
+                var nonTaxableSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getNonTaxableSalary()).First();
+                var taxPerDollar = taxRatesOfSalaryRange.Select(taxRange => taxRange.getTaxPerDollar()).First();
+                var extraTax = taxRatesOfSalaryRange.Select(taxRange => taxRange.getExtraTax()).First();
+                
+                return CalculateIncomeTax(annualSalary, nonTaxableSalary, taxPerDollar, extraTax);
             }
+        }
+
+        private double CalculateIncomeTax(int annualSalary, double nonTaxableSalary, double taxPerDollar, double extraTax)
+        {
+            var taxableSalary = annualSalary - nonTaxableSalary;
+            var taxOnSalary = taxableSalary * taxPerDollar;
+            var incomeTax = Math.Round((taxOnSalary + extraTax) / 12);
+
+            return incomeTax;
         }
     }
 }

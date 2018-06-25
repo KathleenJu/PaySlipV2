@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using PaySlip;
 using Xunit;
 
@@ -43,27 +44,18 @@ namespace PaySlipTest
         }
 
         [Theory]
+        [InlineData(15000, 0, 0, 0, 0)]
+        [InlineData(28000, 18200, 0.19, 0, 155)]
         [InlineData(60050, 37000, 0.325, 3572, 922)]
+        [InlineData(95000, 87000, 0.37, 19822, 1898)]
+        [InlineData(200000, 180000, 0.45, 54232, 5269)]
         public void ReturnIncomeTax(int annualSalary, int nonTaxableSalary, double taxPerDollar, int extraTax,
             int actualIncomeTax)
         {
             var taxCalculator = new TaxCalculator();
+            var taxRatesFile = "./files/taxRateInfo.json";
             var expectedIncomeTax = taxCalculator.CalculateIncomeTax(annualSalary, nonTaxableSalary, taxPerDollar, extraTax);
-            
-            Assert.Equal(expectedIncomeTax, actualIncomeTax);
-        }
-        
-        [Theory]
-        [InlineData(60050, 37000)]
-        [InlineData(15000, 0)]
-        [InlineData(20000, 18200)]
-        [InlineData(37001, 37000)]
-        public void ReturnTaxableSalary(int annualSalary, 
-            double actualIncomeTax)
-        {
-            var taxCalculator = new TaxCalculator();
-            var expectedIncomeTax = taxCalculator.GetTaxableIncome(annualSalary);
-            
+
             Assert.Equal(expectedIncomeTax, actualIncomeTax);
         }
     }

@@ -5,7 +5,7 @@ using System.Net.NetworkInformation;
 
 namespace PaySlip
 {
-    public class TaxRateInfo
+    public class TaxRates
     {
         private double MinimumSalary { get; }
         private double MaximumSalary { get; }
@@ -13,7 +13,7 @@ namespace PaySlip
         private double TaxPerDollar { get; }
         private double ExtraTax { get; }
 
-        public TaxRateInfo(double minimumSalary, double maximumSalary, double nonTaxableSalary, double taxPerDollar,
+        public TaxRates(double minimumSalary, double maximumSalary, double nonTaxableSalary, double taxPerDollar,
             double extraTax)
         {
             MinimumSalary = minimumSalary;
