@@ -1,40 +1,38 @@
-﻿{
-  "taxRateInfo": [
-    {
-      "minimumSalary": 0,
-      "maximumSalary": 18200,
-      "nonTaxableSalary": 0,
-      "taxPerDollar": 0,
-      "extraTax": 0
-    },
-    {
-      "minimumSalary": 18201,
-      "maximumSalary": 37000,
-      "nonTaxableSalary": 18200,
-      "taxPerDollar": 0.19,
-      "extraTax": 0
-    },
-    {
-      "minimumSalary": 37001,
-      "maximumSalary": 87000,
-      "nonTaxableSalary": 37000,
-      "taxPerDollar": 0.325,
-      "extraTax": 3572
-    },
-    {
-      "minimumSalary": 87001,
-      "maximumSalary": 180000,
-      "nonTaxableSalary": 87000,
-      "taxPerDollar": 0.37,
-      "extraTax": 19822
-    },
-    {
-      "minimumSalary": 180001,
-      "maximumSalary": 1000000,
-      "nonTaxableSalary": 180000,
-      "taxPerDollar": 0.45,
-      "extraTax": 54232
-      //special case for this as maximumSalary is positve infinity
-    }
-  ]
-}
+﻿[
+  {
+    "MinimumSalary": 0,
+    "MaximumSalary": 18200,
+    "NonTaxableSalary": 0,
+    "TaxPerDollar": 0,
+    "ExtraTax": 0
+  },
+  {
+    "MinimumSalary": 18201,
+    "MaximumSalary": 37000,
+    "NonTaxableSalary": 18200,
+    "TaxPerDollar": 0.19,
+    "ExtraTax": 0
+  },
+  {
+    "MinimumSalary": 37001,
+    "MaximumSalary": 87000,
+    "NonTaxableSalary": 37000,
+    "TaxPerDollar": 0.325,
+    "ExtraTax": 3572
+  },
+  {
+    "MinimumSalary": 87001,
+    "MaximumSalary": 180000,
+    "NonTaxableSalary": 87000,
+    "TaxPerDollar": 0.37,
+    "ExtraTax": 19822
+  },
+  {
+    "MinimumSalary": 180001,
+    "MaximumSalary": 1000000,
+    "NonTaxableSalary": 180000,
+    "TaxPerDollar": 0.45,
+    "ExtraTax": 54232
+  }
+]
+
