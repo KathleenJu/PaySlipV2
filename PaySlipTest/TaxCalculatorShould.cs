@@ -49,8 +49,8 @@ namespace PaySlipTest
         public void ReturnIncomeTax(int annualSalary, int nonTaxableSalary, double taxPerDollar, int extraTax,
             int actualIncomeTax)
         {
-            var taxRatesFile = "./files/taxRateInfo.json";
-            var expectedIncomeTax = TaxCalculator.CalculateIncomeTax(annualSalary, nonTaxableSalary, taxPerDollar, extraTax);
+            var taxRatesFile = "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/files/taxRateInfo.json";
+            var expectedIncomeTax = TaxCalculator.CalculateIncomeTax(annualSalary, taxRatesFile);
 
             Assert.Equal(expectedIncomeTax, actualIncomeTax);
         }

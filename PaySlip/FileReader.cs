@@ -1,19 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace PaySlip
 {
-    public class FileReader
+    public static class FileReader
     {
-        public static object ReadFromJSONFile(string filePath)
+        public static string ReadFromJSONFile(string filePath)
         {
             using (StreamReader file = new StreamReader(filePath))
             {
-                var json = file.ReadToEnd();
-                var taxRatesInfo = JsonConvert.DeserializeObject(json);
-                return taxRatesInfo;
+                var jsonContent = file.ReadToEnd();
+                return jsonContent;
             }
         }
+
+//        public static object ReadFromCSVFile(string filePath)
+//        {
+//        }
     }
 }
