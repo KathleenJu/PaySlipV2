@@ -19,6 +19,16 @@ namespace PaySlip
             _paymentEndDate = paymentEndDate;
         }
 
+        public int getAnnualSalary()
+        {
+            return _annualSalary;
+        }
+
+        public int getSuperRate()
+        {
+            return _superRate;
+        }
+        
         public string GetPayPeriod()
         {
             string payPeriod =  FormatDate(_paymentStartDate) + " - " + FormatDate(_paymentEndDate);

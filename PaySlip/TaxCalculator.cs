@@ -41,12 +41,12 @@ namespace PaySlip
             var incomeTax = Math.Round((taxOnSalary + taxRatesInfo.getExtraTax()) / 12);
 
             return incomeTax;
-        }
-
+        } 
+        
         private static TaxRatesInfo GetTaxRatesForAnnualSalary(int annualSalary, string taxRatesInfoFilePath)
         {
-            var jsonContent = FileReader.ReadFromJSONFile(taxRatesInfoFilePath); 
-            var taxRatesInfo = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(jsonContent);
+            var taxRatesInfoContent = FileReader.ReadFromJSONFile(taxRatesInfoFilePath); 
+            var taxRatesInfo = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(taxRatesInfoContent);
             
             var taxRatesOfSalaryRange = taxRatesInfo.Where(taxRange =>annualSalary >= taxRange.getMinimumSalary() && annualSalary <= taxRange.getMaximumSalary());
             var minimumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getMinimumSalary()).First();

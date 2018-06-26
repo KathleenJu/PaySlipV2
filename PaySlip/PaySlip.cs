@@ -18,5 +18,36 @@
             NetIncome = netIncome;
             Super = super;
         }
+
+        public string getFullName()
+        {
+            return FullName;
+        }
+        
+        public string getPayPeriod()
+        {
+            return PayPeriod;
+        }
+        
+        public int getGrossIncome()
+        {
+            return GrossIncome;
+        }
+        
+        public int getIncomeTax()
+        {
+            return IncomeTax;
+        }
+        
+        public int getNetIncome()
+        {
+            return NetIncome;
+        }
+        
+        public int getSuper()
+        {
+            return Super;
+        }
+        
     }
 }

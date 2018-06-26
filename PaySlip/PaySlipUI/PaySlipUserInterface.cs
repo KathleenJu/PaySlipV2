@@ -1,11 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PaySlip
 {
     interface PaySlipUserInterface
     {
-        void GeneratePaySlipForm(string formFile);
+        Dictionary<string, string> GetUserDetails(string formFilePath);
 
-        void PrintPaySlip();
+        void PrintPaySlip(PaySlip paySlip, string paySlipFilePath);
     }
 }

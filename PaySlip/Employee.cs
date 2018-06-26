@@ -27,5 +27,11 @@
         {
             return _paySlip;
         }
+
+        public void setPaySlip(PaySlip paySlip)
+        {
+            _paySlip = paySlip;
+        }
+            
     }
 }
