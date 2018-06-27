@@ -6,10 +6,8 @@
         private PaymentDetails _paymentDetails;
         private PaySlip _paySlip;
 
-        public Employee(string firstName, string lastName, PaymentDetails paymentDetails)
+        public Employee(string firstName, string lastName, PaymentDetails paymentDetails) : base(firstName, lastName)
         {
-            _firstName = firstName;
-            _lastName = lastName;
             _paymentDetails = paymentDetails;
         }
 
@@ -32,6 +30,5 @@
         {
             _paySlip = paySlip;
         }
-            
     }
 }

@@ -31,7 +31,7 @@ namespace PaySlip
             var netIncome = grossIncome - incomeTax;
             return netIncome;
         }
-        
+
         public static int CalculateIncomeTax(int annualSalary, string taxRatesInfoFilePath)
         {
             var taxRatesInfo = GetTaxRatesForAnnualSalary(annualSalary, taxRatesInfoFilePath);
@@ -41,14 +41,15 @@ namespace PaySlip
             var incomeTax = Math.Round((taxOnSalary + taxRatesInfo.getExtraTax()) / 12);
 
             return (int) incomeTax;
-        } 
-        
+        }
+
         private static TaxRatesInfo GetTaxRatesForAnnualSalary(int annualSalary, string taxRatesInfoFilePath)
         {
-            var taxRatesInfoContent = FileReader.ReadFromJSONFile(taxRatesInfoFilePath); 
+            var taxRatesInfoContent = FileReader.ReadFromJSONFile(taxRatesInfoFilePath);
             var taxRatesInfo = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(taxRatesInfoContent);
-            
-            var taxRatesOfSalaryRange = taxRatesInfo.Where(taxRange =>annualSalary >= taxRange.getMinimumSalary() && annualSalary <= taxRange.getMaximumSalary());
+
+            var taxRatesOfSalaryRange = taxRatesInfo.Where(taxRange =>
+                annualSalary >= taxRange.getMinimumSalary() && annualSalary <= taxRange.getMaximumSalary());
             var minimumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getMinimumSalary()).First();
             var maximumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getMaximumSalary()).First();
             var nonTaxableSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getNonTaxableSalary()).First();

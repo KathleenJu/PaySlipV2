@@ -6,6 +6,7 @@ namespace PaySlip
     {
         static void Main(string[] args)
         {
+            
             var paySlipConsole = new ConsoleUserInterface();
             var userFormFilePath = "./files/formQuestions.json";
             var paySlipFilePath = "./files/paySlip.json";
@@ -21,12 +22,12 @@ namespace PaySlip
             var grossIncome = TaxCalculator.CalculateGrossIncome(employeePaymentDetails.getAnnualSalary());
             var incomeTax = TaxCalculator.CalculateIncomeTax(employeePaymentDetails.getAnnualSalary(), taxRatesInfoFilePath);
             var netIncome = TaxCalculator.CalculateNetIncome(grossIncome, incomeTax);
-            var super = TaxCalculator.CalculateSuper(grossIncome, Convert.ToInt32(personDetails["superRate"]));
-            var paySlip = new PaySlip(fullName, payPeriod, grossIncome, incomeTax, netIncome, super);
+            var super = TaxCalculator.CalculateSuper(grossIncome, employeePaymentDetails.getSuperRate());
+            var paySlip = new PaySlip(employee);
+            //var paySlip = new PaySlip(employee, taxRates);
             
             paySlipConsole.PrintPaySlip(paySlip, paySlipFilePath);
-            
-//            var paySlip = CalculatePaySlip(employee);
+
         }
     }
 }

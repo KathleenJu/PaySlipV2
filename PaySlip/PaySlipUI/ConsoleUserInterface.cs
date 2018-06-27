@@ -37,18 +37,18 @@ namespace PaySlip
 
             Console.WriteLine("\nYour payslip has been generated:\n");
             
-            Console.Write(paySlipFields.Where(x => x.Key == "FullName").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.FullName);
-            Console.Write(paySlipFields.Where(x => x.Key == "PaymentPeriod").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.PayPeriod);
-            Console.Write(paySlipFields.Where(x => x.Key == "GrossIncome").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.GrossIncome);
-            Console.Write(paySlipFields.Where(x => x.Key == "NetIncome").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.NetIncome);
-            Console.Write(paySlipFields.Where(x => x.Key == "IncomeTax").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.IncomeTax);
-            Console.Write(paySlipFields.Where(x => x.Key == "Super").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.Super);
+//            Console.Write(paySlipFields.Where(x => x.Key == "FullName").Select(x => x.Value).First());
+//            Console.WriteLine(paySlip.FullName);
+//            Console.Write(paySlipFields.Where(x => x.Key == "PaymentPeriod").Select(x => x.Value).First());
+//            Console.WriteLine(paySlip.PayPeriod);
+//            Console.Write(paySlipFields.Where(x => x.Key == "GrossIncome").Select(x => x.Value).First());
+//            Console.WriteLine(paySlip.GrossIncome);
+//            Console.Write(paySlipFields.Where(x => x.Key == "NetIncome").Select(x => x.Value).First());
+//            Console.WriteLine(paySlip.NetIncome);
+//            Console.Write(paySlipFields.Where(x => x.Key == "IncomeTax").Select(x => x.Value).First());
+//            Console.WriteLine(paySlip.IncomeTax);
+//            Console.Write(paySlipFields.Where(x => x.Key == "Super").Select(x => x.Value).First());
+//            Console.WriteLine(paySlip.Super);
             
             Console.WriteLine("\nThank you for using MYOB!");
         }
