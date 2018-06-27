@@ -11,7 +11,7 @@ namespace PaySlip
             var paySlipFilePath = "./files/paySlip.json";
             var taxRatesInfoFilePath = "./files/taxRateInfo.json";
             
-            var personDetails = paySlipConsole.GetUserDetails(userFormFilePath);
+            var personDetails = paySlipConsole.GetPersonDetails(userFormFilePath);
             var paymentDetails = new PaymentDetails(Convert.ToInt32(personDetails["annualSalary"]), Convert.ToInt32(personDetails["superRate"]), personDetails["paymentStartDate"], personDetails["paymentEndDate"] );
             var employee = new Employee(personDetails["firstName"], personDetails["lastName"], paymentDetails);
 
@@ -20,9 +20,9 @@ namespace PaySlip
             var payPeriod = employeePaymentDetails.GetPayPeriod();
             var grossIncome = TaxCalculator.CalculateGrossIncome(employeePaymentDetails.getAnnualSalary());
             var incomeTax = TaxCalculator.CalculateIncomeTax(employeePaymentDetails.getAnnualSalary(), taxRatesInfoFilePath);
-            var netIncome = TaxCalculator.CalculateNetIncome(grossIncome, (int)incomeTax);
+            var netIncome = TaxCalculator.CalculateNetIncome(grossIncome, incomeTax);
             var super = TaxCalculator.CalculateSuper(grossIncome, Convert.ToInt32(personDetails["superRate"]));
-            var paySlip = new PaySlip(fullName, payPeriod, grossIncome, (int)incomeTax, netIncome, (int)super);
+            var paySlip = new PaySlip(fullName, payPeriod, grossIncome, incomeTax, netIncome, super);
             
             paySlipConsole.PrintPaySlip(paySlip, paySlipFilePath);
             

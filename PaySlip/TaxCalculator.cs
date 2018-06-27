@@ -18,12 +18,12 @@ namespace PaySlip
             return grossIncome;
         }
 
-        public static double CalculateSuper(int grossIncome, int superRate)
+        public static int CalculateSuper(int grossIncome, int superRate)
         {
             var superRateInDecimal = (double) superRate / 100;
             var expectedSuper = grossIncome * superRateInDecimal;
 
-            return Math.Floor(expectedSuper);
+            return (int) Math.Floor(expectedSuper);
         }
 
         public static int CalculateNetIncome(int grossIncome, int incomeTax)
@@ -32,7 +32,7 @@ namespace PaySlip
             return netIncome;
         }
         
-        public static double CalculateIncomeTax(int annualSalary, string taxRatesInfoFilePath)
+        public static int CalculateIncomeTax(int annualSalary, string taxRatesInfoFilePath)
         {
             var taxRatesInfo = GetTaxRatesForAnnualSalary(annualSalary, taxRatesInfoFilePath);
 
@@ -40,7 +40,7 @@ namespace PaySlip
             var taxOnSalary = taxableSalary * taxRatesInfo.getTaxPerDollar();
             var incomeTax = Math.Round((taxOnSalary + taxRatesInfo.getExtraTax()) / 12);
 
-            return incomeTax;
+            return (int) incomeTax;
         } 
         
         private static TaxRatesInfo GetTaxRatesForAnnualSalary(int annualSalary, string taxRatesInfoFilePath)

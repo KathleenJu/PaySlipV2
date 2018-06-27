@@ -10,7 +10,7 @@ namespace PaySlip
     {
         private readonly Dictionary<string, string> _userDetails = new Dictionary<string, string>();
 
-        public Dictionary<string, string> GetUserDetails(string formFilePath) //refactor, doing more than one thing?
+        public Dictionary<string, string> GetPersonDetails(string formFilePath) //refactor, doing more than one thing?
         {
             var formQuestionsContent = FileReader.ReadFromJSONFile(formFilePath);
             var formFields = JsonConvert.DeserializeObject<Dictionary<string, string>>(formQuestionsContent);
@@ -30,12 +30,6 @@ namespace PaySlip
             _userDetails.Add(field.Key, Console.ReadLine());
         }
 
-//        public Employee GenerateEmployee()//should this method be in this class?? 
-//        {
-//            var paymentDetails = new PaymentDetails(Convert.ToInt32(_userDetails["annualSalary"]), Convert.ToInt32(_userDetails["superRate"]), _userDetails["paymentStartDate"], _userDetails["paymentEndDate"] );
-//            return new Employee(_userDetails["firstName"], _userDetails["lastName"], paymentDetails);
-//        }
-
         public void PrintPaySlip(PaySlip paySlip, string paySlipFilePath)
         {
             var formQuestionsContent = FileReader.ReadFromJSONFile(paySlipFilePath);
@@ -44,17 +38,17 @@ namespace PaySlip
             Console.WriteLine("\nYour payslip has been generated:\n");
             
             Console.Write(paySlipFields.Where(x => x.Key == "FullName").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.getFullName());
+            Console.WriteLine(paySlip.FullName);
             Console.Write(paySlipFields.Where(x => x.Key == "PaymentPeriod").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.getPayPeriod());
+            Console.WriteLine(paySlip.PayPeriod);
             Console.Write(paySlipFields.Where(x => x.Key == "GrossIncome").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.getGrossIncome());
+            Console.WriteLine(paySlip.GrossIncome);
             Console.Write(paySlipFields.Where(x => x.Key == "NetIncome").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.getNetIncome());
+            Console.WriteLine(paySlip.NetIncome);
             Console.Write(paySlipFields.Where(x => x.Key == "IncomeTax").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.getIncomeTax());
+            Console.WriteLine(paySlip.IncomeTax);
             Console.Write(paySlipFields.Where(x => x.Key == "Super").Select(x => x.Value).First());
-            Console.WriteLine(paySlip.getSuper());
+            Console.WriteLine(paySlip.Super);
             
             Console.WriteLine("\nThank you for using MYOB!");
         }

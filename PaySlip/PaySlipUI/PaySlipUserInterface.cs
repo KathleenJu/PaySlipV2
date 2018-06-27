@@ -5,7 +5,7 @@ namespace PaySlip
 {
     interface PaySlipUserInterface
     {
-        Dictionary<string, string> GetUserDetails(string formFilePath);
+        Dictionary<string, string> GetPersonDetails(string formFilePath);
 
         void PrintPaySlip(PaySlip paySlip, string paySlipFilePath);
     }
