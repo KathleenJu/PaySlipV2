@@ -4,8 +4,8 @@ namespace PaySlip
 {
     public abstract class Person
     {
-        protected string _firstName;
-        protected string _lastName;
+        private readonly string _firstName;
+        private readonly string _lastName;
 
         protected Person(string firstName, string lastName)
         {

@@ -13,28 +13,31 @@ namespace PaySlipTest
         [InlineData(80000, 12, 6666)]
         public void ReturnGrossIncome(int annualSalary, int monthsInAYear, int actualGrossIncome)
         {
-            var expectedGrossIncome = TaxCalculator.CalculateGrossIncome(annualSalary);
+            var taxCalculator = new TaxCalculator(annualSalary);
+            var expectedGrossIncome = taxCalculator.CalculateGrossIncome();
 
             Assert.Equal(expectedGrossIncome, actualGrossIncome);
         }
 
         [Theory]
-        [InlineData(5004, 9, 450)]
-        [InlineData(5833, 9, 524)]
-        [InlineData(6666, 9, 599)]
-        public void ReturnSuper(int grossIncome, int superRate, int actualSuper)
+        [InlineData(60050, 5004, 9, 450)]
+        [InlineData(70000, 5833, 9, 524)]
+        [InlineData(80000, 6666, 9, 599)]
+        public void ReturnSuper(int annualSalary, int grossIncome, int superRate, int actualSuper)
         {
+            var TaxCalculator = new TaxCalculator(annualSalary);
             var expectedSuper = TaxCalculator.CalculateSuper(grossIncome, superRate);
 
             Assert.Equal(expectedSuper, actualSuper);
         }
 
         [Theory]
-        [InlineData(5004, 922, 4082)]
-        [InlineData(5833, 963, 4870)]
-        [InlineData(6666, 1050, 5616)]
-        public void ReturnNetIncome(int grossIncome, int incomeTax, int actualNetIncome)
+        [InlineData(60050, 5004, 922, 4082)]
+        [InlineData(70000, 5833, 963, 4870)]
+        [InlineData(80000, 6666, 1050, 5616)]
+        public void ReturnNetIncome(int annualSalary, int grossIncome, int incomeTax, int actualNetIncome)
         {
+            var TaxCalculator = new TaxCalculator(annualSalary);
             var expectedSuper = TaxCalculator.CalculateNetIncome(grossIncome, incomeTax);
 
             Assert.Equal(expectedSuper, actualNetIncome);
@@ -49,8 +52,9 @@ namespace PaySlipTest
         public void ReturnIncomeTax(int annualSalary, int nonTaxableSalary, double taxPerDollar, int extraTax,
             int actualIncomeTax)
         {
+            var TaxCalculator = new TaxCalculator(annualSalary);
             var taxRatesFile = "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/files/taxRateInfo.json";
-            var expectedIncomeTax = TaxCalculator.CalculateIncomeTax(annualSalary, taxRatesFile);
+            var expectedIncomeTax = TaxCalculator.CalculateIncomeTax();
 
             Assert.Equal(expectedIncomeTax, actualIncomeTax);
         }

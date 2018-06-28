@@ -8,17 +8,25 @@ using Newtonsoft.Json.Linq;
 
 namespace PaySlip
 {
-    public static class TaxCalculator
+    public class TaxCalculator
     {
-        public static int CalculateGrossIncome(int annualSalary) // monthsOfPaymentPeriod
+        private readonly int _annualSalary;
+        private IEnumerable<TaxRatesInfo> TaxRates;
+        
+        public TaxCalculator(int annualSalary)
+        {
+            _annualSalary = annualSalary;
+        }
+        
+        public int CalculateGrossIncome() // monthsOfPaymentPeriod
         {
             var monthsInAYear = 12;
-            var grossIncome = annualSalary / monthsInAYear; // * monthsOfPaymentPeriod;
+            var grossIncome = _annualSalary / monthsInAYear; // * monthsOfPaymentPeriod;
 
             return grossIncome;
         }
 
-        public static int CalculateSuper(int grossIncome, int superRate)
+        public int CalculateSuper(int grossIncome, int superRate)
         {
             var superRateInDecimal = (double) superRate / 100;
             var expectedSuper = grossIncome * superRateInDecimal;
@@ -26,30 +34,27 @@ namespace PaySlip
             return (int) Math.Floor(expectedSuper);
         }
 
-        public static int CalculateNetIncome(int grossIncome, int incomeTax)
+        public int CalculateNetIncome(int grossIncome, int incomeTax)
         {
             var netIncome = grossIncome - incomeTax;
             return netIncome;
         }
 
-        public static int CalculateIncomeTax(int annualSalary, string taxRatesInfoFilePath)
+        public int CalculateIncomeTax()
         {
-            var taxRatesInfo = GetTaxRatesForAnnualSalary(annualSalary, taxRatesInfoFilePath);
+            var taxRatesInfo = GetTaxRatesForAnnualSalary();
 
-            var taxableSalary = annualSalary - taxRatesInfo.getNonTaxableSalary();
+            var taxableSalary = _annualSalary - taxRatesInfo.getNonTaxableSalary();
             var taxOnSalary = taxableSalary * taxRatesInfo.getTaxPerDollar();
             var incomeTax = Math.Round((taxOnSalary + taxRatesInfo.getExtraTax()) / 12);
 
             return (int) incomeTax;
         }
 
-        private static TaxRatesInfo GetTaxRatesForAnnualSalary(int annualSalary, string taxRatesInfoFilePath)
+        private TaxRatesInfo GetTaxRatesForAnnualSalary()
         {
-            var taxRatesInfoContent = FileReader.ReadFromJSONFile(taxRatesInfoFilePath);
-            var taxRatesInfo = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(taxRatesInfoContent);
-
-            var taxRatesOfSalaryRange = taxRatesInfo.Where(taxRange =>
-                annualSalary >= taxRange.getMinimumSalary() && annualSalary <= taxRange.getMaximumSalary());
+            var taxRatesOfSalaryRange = TaxRates.Where(taxRange =>
+                _annualSalary >= taxRange.getMinimumSalary() && _annualSalary <= taxRange.getMaximumSalary());
             var minimumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getMinimumSalary()).First();
             var maximumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getMaximumSalary()).First();
             var nonTaxableSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getNonTaxableSalary()).First();
