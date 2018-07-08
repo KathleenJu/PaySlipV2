@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace PaySlip
 {
-    public static class FileReader
+    public class JSONFileReader : FileReaderInterface
     {
-        public static string ReadFromJSONFile(string filePath)
+        public string load(string filePath)
         {
             using (StreamReader file = new StreamReader(filePath))
             {
@@ -15,8 +15,9 @@ namespace PaySlip
             }
         }
 
-        //        public static object ReadFromCSVFile(string filePath)
-//        {
-//        }
+        public IEnumerable<TaxRatesInfo> parseTaxRatesInfoFile()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -18,20 +18,20 @@ namespace PaySlip
             
             var paySlipConsole = new ConsoleUserInterface();
             
-            var fillOutFormContent = FileReader.ReadFromJSONFile(fillOutFormFilePath);
-            var formQuestions = (Dictionary<string, string>)formConfig.Foo(fillOutFormContent) ;
-            var personDetails = paySlipConsole.GetPersonDetails( formQuestions);
-            var paymentDetails = new PaymentDetails(Convert.ToInt32(personDetails["annualSalary"]), Convert.ToInt32(personDetails["superRate"]), personDetails["paymentStartDate"], personDetails["paymentEndDate"] );
-            var employee = new Employee(personDetails["firstName"], personDetails["lastName"], paymentDetails);
-
-            var taxRatesInfoContent = FileReader.ReadFromJSONFile(taxRatesInfoFilePath);
-            var taxRates = (IEnumerable<TaxRatesInfo>)taxRatesFileConfig.Foo(taxRatesInfoContent) ;
-            var paySlip = new PaySlip(employee, taxRates);
-            
-            var paySlipFileContent = FileReader.ReadFromJSONFile(paySlipFilePath);
-            var paySlipForm = (Dictionary<string, string>)formConfig.Foo(paySlipFileContent);
-            
-            paySlipConsole.PrintPaySlip(paySlip, paySlipForm);
+//            var fillOutFormContent = JSONFileReader.load(fillOutFormFilePath);
+//            var formQuestions = (Dictionary<string, string>)formConfig.Foo(fillOutFormContent) ;
+//            var personDetails = paySlipConsole.GetPersonDetails( formQuestions);
+//            var paymentDetails = new PaymentDetails(Convert.ToInt32(personDetails["annualSalary"]), Convert.ToInt32(personDetails["superRate"]), personDetails["paymentStartDate"], personDetails["paymentEndDate"] );
+//            var employee = new Employee(personDetails["firstName"], personDetails["lastName"], paymentDetails);
+//
+//            var taxRatesInfoContent = JSONFileReader.load(taxRatesInfoFilePath);
+//            var taxRates = (IEnumerable<TaxRatesInfo>)taxRatesFileConfig.Foo(taxRatesInfoContent) ;
+//            var paySlip = new PaySlip(employee, taxRates);
+//            
+//            var paySlipFileContent = JSONFileReader.load(paySlipFilePath);
+//            var paySlipForm = (Dictionary<string, string>)formConfig.Foo(paySlipFileContent);
+//            
+//            paySlipConsole.PrintPaySlip(paySlip, paySlipForm);
 
         }
     }
