@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using PaySlip.FilesConfig;
 
 namespace PaySlip
 {
@@ -13,8 +12,8 @@ namespace PaySlip
             var fillOutFormFilePath = "./files/fillOutForm.json";
             var paySlipFilePath = "./files/paySlip.json";
             var taxRatesInfoFilePath = "./files/taxRatesInfo.json";
-            var formConfig = new BasicFormFileConfig();
-            var taxRatesFileConfig = new TaxRatesFileConfig();
+//            var formConfig = new BasicFormFileConfig();
+//            var taxRatesFileConfig = new TaxRatesFileConfig();
             
             var paySlipConsole = new ConsoleUserInterface();
             
