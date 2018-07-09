@@ -19,8 +19,8 @@ namespace PaySlip
         public IEnumerable parseBasicFormFile(string filePath)
         {
             var csvContent = load(filePath);
-            var dict = new Dictionary<string, string>();
-            string[] lines = Regex.Split(csvContent, "\r\n");
+//            var dict = new Dictionary<string, string>();
+//            string[] lines = Regex.Split(csvContent, "\r\n");
 
 //            foreach (string line in lines)
 //            {
@@ -28,7 +28,8 @@ namespace PaySlip
 //                dict.Add(line, line[1]);
 //            }
 
-            return dict;
+//            return dict;
+            throw new System.NotImplementedException();
 
         }
         public IEnumerable<TaxRatesInfo> parseTaxRatesInfoFile(string fileContent)
