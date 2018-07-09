@@ -23,27 +23,27 @@ namespace PaySlip
             ExtraTax = extraTax;
         }
 
-        public double getMinimumSalary()
+        public double GetMinimumSalary()
         {
             return MinimumSalary;
         }
 
-        public double getMaximumSalary()
+        public double GetMaximumSalary()
         {
             return MaximumSalary;
         }
 
-        public double getNonTaxableSalary()
+        public double GetNonTaxableSalary()
         {
             return NonTaxableSalary;
         }
 
-        public double getTaxPerDollar()
+        public double GetTaxPerDollar()
         {
             return TaxPerDollar;
         }
 
-        public double getExtraTax()
+        public double GetExtraTax()
         {
             return ExtraTax;
         }

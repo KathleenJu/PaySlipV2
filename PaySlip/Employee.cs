@@ -4,14 +4,13 @@
     {
         private string _company;
         private readonly PaymentDetails _paymentDetails;
-        private PaySlip _paySlip;
 
         public Employee(string firstName, string lastName, PaymentDetails paymentDetails) : base(firstName, lastName)
         {
             _paymentDetails = paymentDetails;
         }
 
-        public PaymentDetails getPaymentDetails()
+        public PaymentDetails GetPaymentDetails()
         {
             return _paymentDetails;
         }

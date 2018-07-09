@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace PaySlip
+namespace PaySlip.FileReader
 {
-    public class JSONFileReader : FileReaderInterface 
+    public class JsonFileReader : IFileReaderInterface 
     {
-        public string load(string filePath)
+        public string Load(string filePath)
         {
             using (StreamReader file = new StreamReader(filePath))
             {
@@ -16,13 +16,13 @@ namespace PaySlip
             }
         }
 
-        public IEnumerable parseBasicFormFile(string formFileContent)
+        public IEnumerable ParseBasicFormFile(string formFileContent)
         {
             var form = JsonConvert.DeserializeObject<Dictionary<string, string>>(formFileContent);
             return form;
         }
 
-        public IEnumerable<TaxRatesInfo> parseTaxRatesInfoFile(string taxRatesInfoFileContent)
+        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string taxRatesInfoFileContent)
         {
             var taxRates = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(taxRatesInfoFileContent);
             return  taxRates;

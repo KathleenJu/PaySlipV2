@@ -44,9 +44,9 @@ namespace PaySlip
         {
             var taxRatesInfo = GetTaxRatesForAnnualSalary();
 
-            var taxableSalary = _annualSalary - taxRatesInfo.getNonTaxableSalary();
-            var taxOnSalary = taxableSalary * taxRatesInfo.getTaxPerDollar();
-            var incomeTax = Math.Round((taxOnSalary + taxRatesInfo.getExtraTax()) / 12);
+            var taxableSalary = _annualSalary - taxRatesInfo.GetNonTaxableSalary();
+            var taxOnSalary = taxableSalary * taxRatesInfo.GetTaxPerDollar();
+            var incomeTax = Math.Round((taxOnSalary + taxRatesInfo.GetExtraTax()) / 12);
 
             return (int) incomeTax;
         }
@@ -54,12 +54,12 @@ namespace PaySlip
         private TaxRatesInfo GetTaxRatesForAnnualSalary()
         {
             var taxRatesOfSalaryRange = TaxRates.Where(taxRange =>
-                _annualSalary >= taxRange.getMinimumSalary() && _annualSalary <= taxRange.getMaximumSalary());
-            var minimumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getMinimumSalary()).First();
-            var maximumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getMaximumSalary()).First();
-            var nonTaxableSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.getNonTaxableSalary()).First();
-            var taxPerDollar = taxRatesOfSalaryRange.Select(taxRange => taxRange.getTaxPerDollar()).First();
-            var extraTax = taxRatesOfSalaryRange.Select(taxRange => taxRange.getExtraTax()).First();
+                _annualSalary >= taxRange.GetMinimumSalary() && _annualSalary <= taxRange.GetMaximumSalary());
+            var minimumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.GetMinimumSalary()).First();
+            var maximumSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.GetMaximumSalary()).First();
+            var nonTaxableSalary = taxRatesOfSalaryRange.Select(taxRange => taxRange.GetNonTaxableSalary()).First();
+            var taxPerDollar = taxRatesOfSalaryRange.Select(taxRange => taxRange.GetTaxPerDollar()).First();
+            var extraTax = taxRatesOfSalaryRange.Select(taxRange => taxRange.GetExtraTax()).First();
 
             return new TaxRatesInfo(minimumSalary, maximumSalary, nonTaxableSalary, taxPerDollar, extraTax);
         }

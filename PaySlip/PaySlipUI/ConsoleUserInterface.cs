@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
 
-namespace PaySlip
+namespace PaySlip.PaySlipUI
 {
-    public class ConsoleUserInterface : PaySlipUserInterface
+    public class ConsoleUserInterface : IPaySlipUserInterface
     {
         private readonly Dictionary<string, string> _personDetails = new Dictionary<string, string>();
 

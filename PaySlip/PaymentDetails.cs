@@ -19,12 +19,12 @@ namespace PaySlip
             _paymentEndDate = paymentEndDate;
         }
 
-        public int getAnnualSalary()
+        public int GetAnnualSalary()
         {
             return _annualSalary;
         }
 
-        public int getSuperRate()
+        public int GetSuperRate()
         {
             return _superRate;
         }

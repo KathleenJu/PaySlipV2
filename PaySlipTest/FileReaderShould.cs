@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using PaySlip;
+using PaySlip.FileReader;
 using Xunit;
 
 namespace PaySlipTest
@@ -26,17 +27,17 @@ namespace PaySlipTest
             "Ryan,Chen,120000,10%,01 March – 31 March")]
         public void ReturnCSVFileContent(string filePath, string actualCSVOutput)
         {
-            var csv = new CSVFileReader();
-            var expectedCSVOutput = csv.load(filePath);
+            var csv = new CsvFileReader();
+            var expectedCSVOutput = csv.Load(filePath);
             Assert.Equal(expectedCSVOutput, actualCSVOutput);
         }
         
         [Fact]
         public void ReturnCSVFileInTheRightFormat()
         {
-            var csv = new CSVFileReader();
+            var csv = new CsvFileReader();
             var filePath = "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/files/sample_input.csv";
-            var expectedCSVOutput = csv.parseBasicFormFile(filePath);
+            var expectedCSVOutput = csv.ParseBasicFormFile(filePath);
             Assert.Equal(expectedCSVOutput, foo);
         }
     }

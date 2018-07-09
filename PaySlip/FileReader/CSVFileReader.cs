@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
 
-namespace PaySlip
+namespace PaySlip.FileReader
 {
-    public class CSVFileReader : FileReaderInterface
+    public class CsvFileReader : IFileReaderInterface
     {
-        public string load(string filePath)
+        public string Load(string filePath)
         {
             using (StreamReader file = new StreamReader(filePath))
             {
@@ -16,9 +15,9 @@ namespace PaySlip
             }
         }
 
-        public IEnumerable parseBasicFormFile(string filePath)
+        public IEnumerable ParseBasicFormFile(string filePath)
         {
-            var csvContent = load(filePath);
+            var csvContent = Load(filePath);
 //            var dict = new Dictionary<string, string>();
 //            string[] lines = Regex.Split(csvContent, "\r\n");
 
@@ -32,7 +31,7 @@ namespace PaySlip
             throw new System.NotImplementedException();
 
         }
-        public IEnumerable<TaxRatesInfo> parseTaxRatesInfoFile(string fileContent)
+        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string fileContent)
         {
             throw new System.NotImplementedException();
         }

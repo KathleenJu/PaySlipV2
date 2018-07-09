@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
-namespace PaySlip
+namespace PaySlip.PaySlipUI
 {
-    interface PaySlipUserInterface
+    interface IPaySlipUserInterface
     {
         Dictionary<string, string> GetPersonDetails(Dictionary<string, string> formFilePath);
 
