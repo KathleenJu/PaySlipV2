@@ -10,7 +10,6 @@ namespace PaySlipTest
 {
     public class PaySlipShould
     {
-        private readonly string TaxRatesInfoFilePath = "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/files/taxRatesInfo.json";
         [Theory]
         [InlineData(60050, 5004)]
         [InlineData(70000, 5833)]
@@ -25,10 +24,10 @@ namespace PaySlipTest
         }
 
         [Theory]
-        [InlineData(60050, 5004, 9, 450)]
-        [InlineData(70000, 5833, 9, 524)]
-        [InlineData(80000, 6666, 9, 599)]
-        public void ReturnSuper(int annualSalary, int grossIncome, int superRate, int actualSuper)
+        [InlineData(60050, 9, 450)]
+        [InlineData(70000, 9, 524)]
+        [InlineData(80000, 9, 599)]
+        public void ReturnSuper(int annualSalary, int superRate, int actualSuper)
         {
             var mockOfEmployee = new Mock<Employee>(It.IsAny<string>(), It.IsAny<string>(), new PaymentDetails( annualSalary, superRate, It.IsAny<string>(), It.IsAny<string>()) );
             var paySlip = new PaySlip.PaySlip(mockOfEmployee.Object, It.IsAny<IEnumerable<TaxRatesInfo>>() );
@@ -38,15 +37,15 @@ namespace PaySlipTest
         }
 
         [Theory]
-        [InlineData(60050, 5004, 922, 4082)]
-        [InlineData(70000, 5833, 1191, 4642)]
-        [InlineData(80000, 6666, 1462, 5204)]
-        public void ReturnNetIncome(int annualSalary, int grossIncome, int incomeTax, int actualNetIncome)
+        [InlineData(60050, 4082)]
+        [InlineData(70000, 4642)]
+        [InlineData(80000, 5204)]
+        public void ReturnNetIncome(int annualSalary, int actualNetIncome)
         {
             
             var taxRatesFilePath = "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/files/taxRatesInfo.json";
             var mockOfEmployee = new Mock<Employee>(It.IsAny<string>(), It.IsAny<string>(), new PaymentDetails( annualSalary, It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()) );
-            var taxRates = new JsonFileReader().ParseTaxRatesInfoFile(taxRatesFilePath);
+            var taxRates = new JsonFileReader(taxRatesFilePath).ParseTaxRatesInfoFile();
             var paySlip = new PaySlip.PaySlip(mockOfEmployee.Object, taxRates);
             var expectedNetIncome = paySlip.GetNetIncome();
 
@@ -64,7 +63,7 @@ namespace PaySlipTest
         {
             var taxRatesFilePath = "/Users/kathleen.jumamoy/Projects/Katas/PaySlipV2/PaySlip/files/taxRatesInfo.json";
             var mockOfEmployee = new Mock<Employee>(It.IsAny<string>(), It.IsAny<string>(), new PaymentDetails( annualSalary, It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>()) );
-            var taxRates = new JsonFileReader().ParseTaxRatesInfoFile(taxRatesFilePath);
+            var taxRates = new JsonFileReader(taxRatesFilePath).ParseTaxRatesInfoFile();
             var paySlip = new PaySlip.PaySlip(mockOfEmployee.Object, taxRates);
             var expectedIncomeTax = paySlip.GetIncomeTax();
 

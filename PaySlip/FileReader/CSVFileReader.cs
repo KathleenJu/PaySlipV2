@@ -1,39 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System;
+ using System.Collections;
+ using System.Collections.Generic;
+ using System.IO;
+ using System.Linq;
+ using System.Text;
+using System.Text.RegularExpressions;
 
 namespace PaySlip.FileReader
-{
-    public class CsvFileReader : IFileReaderInterface
-    {
-        public string Load(string filePath)
-        {
-            using (StreamReader file = new StreamReader(filePath))
-            {
-                var csvContent = file.ReadToEnd();
-                return csvContent;
-            }
-        }
-
-        public IEnumerable ParseBasicFormFile(string filePath)
-        {
-            var csvContent = Load(filePath);
-//            var dict = new Dictionary<string, string>();
-//            string[] lines = Regex.Split(csvContent, "\r\n");
-
-//            foreach (string line in lines)
-//            {
-//                string[] parts = line.Split(',');
-//                dict.Add(line, line[1]);
-//            }
-
-//            return dict;
-            throw new System.NotImplementedException();
-
-        }
-        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string taxRatesFilePath)
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-}
+ {
+     public class CsvFileReader : FileReader
+     {
+         public CsvFileReader(string filePath) : base(filePath)
+         {
+         }
+ 
+         public override Dictionary<string, string> ParseBasicFormFile()
+         {
+             throw new NotImplementedException();
+ 
+         }
+         public override IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile()
+         {
+             throw new NotImplementedException();
+         }
+     }
+ }

@@ -5,28 +5,21 @@ using Newtonsoft.Json;
 
 namespace PaySlip.FileReader
 {
-    public class JsonFileReader : IFileReaderInterface 
+    public class JsonFileReader : FileReader
     {
-        public string Load(string filePath)
+        public JsonFileReader(string filePath) : base(filePath)
         {
-            using (StreamReader file = new StreamReader(filePath))
-            {
-                var jsonContent = file.ReadToEnd();
-                return jsonContent;
-            }
         }
 
-        public IEnumerable ParseBasicFormFile(string formFilePath)
+        public override Dictionary<string,string> ParseBasicFormFile()
         {
-            string formFileContent = Load(formFilePath);
-            var form = JsonConvert.DeserializeObject<Dictionary<string, string>>(formFileContent);
+            var form = JsonConvert.DeserializeObject<Dictionary<string, string>>(FileContent);
             return form;
         }
 
-        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string taxRatesFilePath)
+        public override IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile()
         {
-            var taxRatesInfoFileContent = Load(taxRatesFilePath);
-            var taxRates = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(taxRatesInfoFileContent);
+            var taxRates = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(FileContent);
             return  taxRates;
         }
 
