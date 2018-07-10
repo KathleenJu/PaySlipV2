@@ -7,6 +7,6 @@ namespace PaySlip.FileReader
     {
         string Load(string filePath);
         IEnumerable ParseBasicFormFile(string filePath);
-        IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string fileContent);
+        IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string taxRatesFilePath);
     }
 }

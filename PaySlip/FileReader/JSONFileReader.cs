@@ -16,14 +16,16 @@ namespace PaySlip.FileReader
             }
         }
 
-        public IEnumerable ParseBasicFormFile(string formFileContent)
+        public IEnumerable ParseBasicFormFile(string formFilePath)
         {
+            string formFileContent = Load(formFilePath);
             var form = JsonConvert.DeserializeObject<Dictionary<string, string>>(formFileContent);
             return form;
         }
 
-        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string taxRatesInfoFileContent)
+        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string taxRatesFilePath)
         {
+            var taxRatesInfoFileContent = Load(taxRatesFilePath);
             var taxRates = JsonConvert.DeserializeObject<IEnumerable<TaxRatesInfo>>(taxRatesInfoFileContent);
             return  taxRates;
         }

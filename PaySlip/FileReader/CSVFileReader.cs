@@ -31,7 +31,7 @@ namespace PaySlip.FileReader
             throw new System.NotImplementedException();
 
         }
-        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string fileContent)
+        public IEnumerable<TaxRatesInfo> ParseTaxRatesInfoFile(string taxRatesFilePath)
         {
             throw new System.NotImplementedException();
         }
